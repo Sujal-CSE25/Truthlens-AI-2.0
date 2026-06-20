@@ -85,7 +85,7 @@ def render_home():
          "Billions of synthetic media files are now in circulation — manipulation is no longer rare."),
         ("purple", "PUBLIC CONCERN", "85%",  "Trust Deficit",
          "Most people report difficulty distinguishing real content from AI-generated or doctored media."),
-        ("cyan",   "CREDENTIAL FRAUD","1in5","Forged Documents",
+        ("cyan",   "CREDENTIAL FRAUD","1 in 5","Forged Documents",
          "Forged certificates and IDs remain a persistent vector for fraud across hiring and admissions."),
     ]
     for col, (stat_cls, tag_lbl, stat, title, desc) in zip([pc1, pc2, pc3, pc4], problems):
