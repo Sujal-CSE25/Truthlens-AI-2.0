@@ -20,7 +20,7 @@ def render_navbar():
         st.markdown(
             """
             <div style="display:flex;align-items:center;gap:10px;padding:12px 0 8px;">
-              <div style="width:40px;height:32px;background:linear-gradient(135deg,#7C4DFF,#00CFFF);
+              <div style="width:32px;height:32px;background:linear-gradient(135deg,#7C4DFF,#00CFFF);
                           border-radius:8px;display:flex;align-items:center;justify-content:center;
                           font-size:15px;font-weight:900;color:#fff;font-family:'Poppins',sans-serif;">T</div>
               <span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1.05rem;
