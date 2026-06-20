@@ -138,7 +138,7 @@ div[class*="css-"],
 }
 .nav-brand-text {
     font-family: var(--font-d);
-    font-size: 0.75rem; font-weight: 800;
+    font-size: 1.05rem; font-weight: 800;
     background: linear-gradient(135deg, var(--p-light) 0%, var(--s) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     white-space: nowrap; letter-spacing: -0.01em;
