@@ -157,6 +157,8 @@ div[class*="css-"],
     transition: all 0.2s ease !important;
     box-shadow: none !important;
     letter-spacing: 0.01em !important;
+    min-width: 150px !important;
+    white-space: nowrap !important;
 }
 [data-testid="stHorizontalBlock"]:has(.nav-marker) .stButton > button:hover {
     color: var(--tx) !important;
