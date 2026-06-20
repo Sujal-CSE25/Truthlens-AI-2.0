@@ -328,7 +328,7 @@ div[data-testid="metric-container"] label {
     background-clip: text;
 }
 .hero-desc {
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
     color: var(--tx-m);
     max-width: 800px;
     margin: 0 auto 34px;
