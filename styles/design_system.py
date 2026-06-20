@@ -316,7 +316,7 @@ div[data-testid="metric-container"] label {
 }
 .hero-title {
     font-family: var(--font-d);
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 0.95;
     margin: 0 0 20px;
