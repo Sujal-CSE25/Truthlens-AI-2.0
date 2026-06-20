@@ -13,8 +13,8 @@ def render_navbar():
     )
 
     col_brand, *nav_cols, col_space = st.columns(
-        [2] + [1] * len(NAV_ITEMS) + [1]
-    )
+    [2.5, 1.0, 1.2, 1.2, 1.2, 1.5, 1.0, 0.5]
+)
 
     with col_brand:
         st.markdown(
