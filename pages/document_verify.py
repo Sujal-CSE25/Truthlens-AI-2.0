@@ -112,7 +112,7 @@ def render_document_verify():
             try:
                 uploaded.seek(0)
                 img = Image.open(uploaded)
-                st.image(img, caption="Uploaded Document", width="stretch")
+                st.image(img, caption="Uploaded Document", use_container_width=True)
             except Exception:
                 pass
         elif uploaded:

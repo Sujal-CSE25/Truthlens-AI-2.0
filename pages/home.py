@@ -51,13 +51,13 @@ def render_home():
 
     col_a, col_b, col_c, col_d, col_e = st.columns([1.5, 1, 1, 1, 1.5])
     with col_b:
-        if st.button("Analyze Text", key="hero_fn", width="stretch"):
+        if st.button("Analyze Text", key="hero_fn", use_container_width=True):
             _nav("Detection")
     with col_c:
-        if st.button("Detect Deepfake", key="hero_df", width="stretch"):
+        if st.button("Detect Deepfake", key="hero_df", use_container_width=True):
             _nav("Detection")
     with col_d:
-        if st.button("Verify Document", key="hero_doc", width="stretch"):
+        if st.button("Verify Document", key="hero_doc", use_container_width=True):
             _nav("Documents")
 
     st.markdown("<hr class='section-divider'>", unsafe_allow_html=True)
@@ -212,7 +212,7 @@ def render_home():
             """,
             unsafe_allow_html=True,
         )
-        if st.button("Try Text Detection", key="cta_fn", width="stretch"):
+        if st.button("Try Text Detection", key="cta_fn", use_container_width=True):
             _nav("Detection")
 
     with fc2:
@@ -236,7 +236,7 @@ def render_home():
             """,
             unsafe_allow_html=True,
         )
-        if st.button("Try Image Detection", key="cta_df", width="stretch"):
+        if st.button("Try Image Detection", key="cta_df", use_container_width=True):
             _nav("Detection")
 
     with fc3:
@@ -260,7 +260,7 @@ def render_home():
             """,
             unsafe_allow_html=True,
         )
-        if st.button("Try Document Verification", key="cta_doc", width="stretch"):
+        if st.button("Try Document Verification", key="cta_doc", use_container_width=True):
             _nav("Documents")
 
     st.markdown(

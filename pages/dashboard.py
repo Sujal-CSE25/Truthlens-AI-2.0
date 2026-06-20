@@ -86,7 +86,7 @@ def render_dashboard():
         values = [stats["texts"], stats["images"], stats["docs"]]
         fig = make_donut_chart(labels, values, colors=["#7C4DFF", "#00CFFF", "#00E5A0"])
         if fig:
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.markdown(
                 "<div class='glass-card' style='text-align:center;color:var(--tx-d)'>"
@@ -96,7 +96,7 @@ def render_dashboard():
         section_header("Analyses Over Time (30 days)", "")
         fig = make_daily_trend_chart(daily)
         if fig:
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.markdown(
                 "<div class='glass-card' style='text-align:center;color:var(--tx-d)'>"

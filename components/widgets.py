@@ -313,12 +313,12 @@ def render_feedback_widget(analysis_id: str):
     )
     col1, col2, col3 = st.columns([1, 1, 3])
     with col1:
-        if st.button("Correct", key=f"fb_yes_{analysis_id}", width="stretch"):
+        if st.button("Correct", key=f"fb_yes_{analysis_id}", use_container_width=True):
             save_feedback(analysis_id, is_correct=True)
             st.success("Feedback saved — thank you!")
             st.session_state.feedback_submitted = True
     with col2:
-        if st.button("Incorrect", key=f"fb_no_{analysis_id}", width="stretch"):
+        if st.button("Incorrect", key=f"fb_no_{analysis_id}", use_container_width=True):
             save_feedback(analysis_id, is_correct=False)
             st.warning("Feedback noted — helps us improve!")
             st.session_state.feedback_submitted = True

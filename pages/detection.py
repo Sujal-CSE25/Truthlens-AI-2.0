@@ -186,7 +186,7 @@ def _fake_news_tab():
             "Distrust":     100 - result.get("trust_score", 100),
             "Confidence":   result.get("confidence", 0),
         }
-        st.plotly_chart(make_radar_chart(radar), width="stretch")
+        st.plotly_chart(make_radar_chart(radar), use_container_width=True)
 
     # Linguistic scores
     ling_scores = result.get("linguistic_scores", {})
@@ -239,10 +239,10 @@ def _fake_news_tab():
     g1, g2 = st.columns(2)
     with g1:
         st.plotly_chart(make_gauge_chart(result.get("confidence", 0),
-                        "AI Confidence", "#7C4DFF"), width="stretch")
+                        "AI Confidence", "#7C4DFF"), use_container_width=True)
     with g2:
         st.plotly_chart(make_gauge_chart(result.get("fake_score", 0),
-                        "Fake Score", "#FF4560"), width="stretch")
+                        "Fake Score", "#FF4560"), use_container_width=True)
 
     # Feedback
     analysis_id = result.get("analysis_id", "unknown")
@@ -266,7 +266,7 @@ def _deepfake_tab():
     )
     col_btn, col_hint, _ = st.columns([1.5, 3, 2])
     with col_btn:
-        analyze = st.button("Analyze Image", key="analyze_img", width="stretch")
+        analyze = st.button("Analyze Image", key="analyze_img", use_container_width=True)
     with col_hint:
         st.markdown(
             "<div style='padding-top:8px;font-size:0.78rem;color:var(--tx-d)'>"
@@ -324,7 +324,7 @@ def _deepfake_tab():
             try:
                 uploaded.seek(0)
                 img = Image.open(uploaded)
-                st.image(img, caption="Uploaded Image", width="stretch")
+                st.image(img, caption="Uploaded Image", use_container_width=True)
             except Exception:
                 pass
 
@@ -374,10 +374,10 @@ def _deepfake_tab():
         g1, g2 = st.columns(2)
         with g1:
             st.plotly_chart(make_gauge_chart(result.get("ai_generated_score", 0),
-                            "AI Generated", "#8B5CF6"), width="stretch")
+                            "AI Generated", "#8B5CF6"), use_container_width=True)
         with g2:
             st.plotly_chart(make_gauge_chart(result.get("manipulation_score", 0),
-                            "Manipulation", "#FF4560"), width="stretch")
+                            "Manipulation", "#FF4560"), use_container_width=True)
 
     # Forensic detail breakdown
     if result.get("forensic_detail"):

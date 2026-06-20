@@ -85,7 +85,7 @@ def render_analytics():
                 text_result.get("manipulation_score", 0),
                 100 - text_result.get("trust_score", 0),
             ]
-            st.plotly_chart(make_bar_chart(labels, values, "Risk Factor Breakdown"), width="stretch")
+            st.plotly_chart(make_bar_chart(labels, values, "Risk Factor Breakdown"), use_container_width=True)
 
         with col2:
             ling = text_result.get("linguistic_scores", {})
@@ -96,7 +96,7 @@ def render_analytics():
                     ling.get("urgency", 0), ling.get("propaganda", 0),
                     ling.get("certainty", 0),
                 ]
-                st.plotly_chart(make_bar_chart(labels2, values2, "Linguistic Signal Breakdown"), width="stretch")
+                st.plotly_chart(make_bar_chart(labels2, values2, "Linguistic Signal Breakdown"), use_container_width=True)
             else:
                 radar = {
                     "Fake":         text_result.get("fake_score", 0),
@@ -105,7 +105,7 @@ def render_analytics():
                     "Distrust":     100 - text_result.get("trust_score", 0),
                     "Confidence":   text_result.get("confidence", 0),
                 }
-                st.plotly_chart(make_radar_chart(radar), width="stretch")
+                st.plotly_chart(make_radar_chart(radar), use_container_width=True)
 
         # Claim verification stats
         claim_stats = text_result.get("claim_stats", {})
@@ -126,9 +126,9 @@ def render_analytics():
 
         g1, g2 = st.columns(2)
         with g1:
-            st.plotly_chart(make_gauge_chart(text_result.get("confidence", 0), "AI Confidence", "#7C4DFF"), width="stretch")
+            st.plotly_chart(make_gauge_chart(text_result.get("confidence", 0), "AI Confidence", "#7C4DFF"), use_container_width=True)
         with g2:
-            st.plotly_chart(make_gauge_chart(text_result.get("fake_score", 0), "Fake Score", "#FF4560"), width="stretch")
+            st.plotly_chart(make_gauge_chart(text_result.get("fake_score", 0), "Fake Score", "#FF4560"), use_container_width=True)
 
     # ── Image analysis charts ────────────────────────────────
     if image_result and "error" not in image_result:
@@ -136,11 +136,11 @@ def render_analytics():
         section_header("Image & Deepfake Analysis", "")
         g1, g2, g3 = st.columns(3)
         with g1:
-            st.plotly_chart(make_gauge_chart(image_result.get("ai_generated_score", 0), "AI Generated", "#8B5CF6"), width="stretch")
+            st.plotly_chart(make_gauge_chart(image_result.get("ai_generated_score", 0), "AI Generated", "#8B5CF6"), use_container_width=True)
         with g2:
-            st.plotly_chart(make_gauge_chart(image_result.get("manipulation_score", 0), "Manipulation", "#FF4560"), width="stretch")
+            st.plotly_chart(make_gauge_chart(image_result.get("manipulation_score", 0), "Manipulation", "#FF4560"), use_container_width=True)
         with g3:
-            st.plotly_chart(make_gauge_chart(image_result.get("authenticity_score", 0), "Authenticity", "#00E5A0"), width="stretch")
+            st.plotly_chart(make_gauge_chart(image_result.get("authenticity_score", 0), "Authenticity", "#00E5A0"), use_container_width=True)
 
         forensic = image_result.get("forensic_detail", {})
         if forensic:
@@ -152,7 +152,7 @@ def render_analytics():
                 forensic.get("edge", {}).get("edge_score", 0),
                 forensic.get("exif", {}).get("anomaly_score", 0),
             ]
-            st.plotly_chart(make_bar_chart(labels, values, "Forensic Signal Breakdown"), width="stretch")
+            st.plotly_chart(make_bar_chart(labels, values, "Forensic Signal Breakdown"), use_container_width=True)
 
     # ── Document analysis ────────────────────────────────────
     if doc_result and "error" not in doc_result:
@@ -160,9 +160,9 @@ def render_analytics():
         section_header("Document Verification Analysis", "")
         g1, g2 = st.columns(2)
         with g1:
-            st.plotly_chart(make_gauge_chart(doc_result.get("authenticity_score", 0), "Authenticity", "#00E5A0"), width="stretch")
+            st.plotly_chart(make_gauge_chart(doc_result.get("authenticity_score", 0), "Authenticity", "#00E5A0"), use_container_width=True)
         with g2:
-            st.plotly_chart(make_gauge_chart(doc_result.get("forgery_score", 0), "Forgery Risk", "#FF4560"), width="stretch")
+            st.plotly_chart(make_gauge_chart(doc_result.get("forgery_score", 0), "Forgery Risk", "#FF4560"), use_container_width=True)
 
         template = doc_result.get("template_analysis", {})
         if template:
@@ -180,13 +180,13 @@ def render_analytics():
         section_header("Session History — Risk Score Trend", "")
         fig = make_history_line_chart(history)
         if fig:
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
 
     # ── Clear button ─────────────────────────────────────────
     st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
     _, btn_col, _ = st.columns([3, 1, 3])
     with btn_col:
-        if st.button("Clear Session Data", key="clear_dash", width="stretch"):
+        if st.button("Clear Session Data", key="clear_dash", use_container_width=True):
             st.session_state.analysis_history = []
             st.session_state.text_result = None
             st.session_state.image_result = None
