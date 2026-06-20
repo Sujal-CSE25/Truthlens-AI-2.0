@@ -317,7 +317,7 @@ div[data-testid="metric-container"] label {
 .hero-title {
     font-family: var(--font-d);
     font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 600;
+    font-weight: 800;
     line-height: 0.95;
     margin: 0 0 20px;
     background: linear-gradient(140deg, #FFFFFF 20%, var(--p-light) 55%, var(--s) 100%);
