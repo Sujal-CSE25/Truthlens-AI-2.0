@@ -6,12 +6,35 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ─── API Keys ────────────────────────────────────────────────
-GEMINI_API_KEY     = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_API_KEY     = os.getenv("GOOGLE_API_KEY", "")
-GOOGLE_CSE_ID      = os.getenv("GOOGLE_CSE_ID", "")
-HF_TOKEN           = os.getenv("HF_TOKEN", "")
+try:
+    import streamlit as st
 
+    GEMINI_API_KEY = st.secrets.get(
+        "GEMINI_API_KEY",
+        os.getenv("GEMINI_API_KEY", "")
+    )
+
+    GOOGLE_API_KEY = st.secrets.get(
+        "GOOGLE_API_KEY",
+        os.getenv("GOOGLE_API_KEY", "")
+    )
+
+    GOOGLE_CSE_ID = st.secrets.get(
+        "GOOGLE_CSE_ID",
+        os.getenv("GOOGLE_CSE_ID", "")
+    )
+
+    HF_TOKEN = st.secrets.get(
+        "HF_TOKEN",
+        os.getenv("HF_TOKEN", "")
+    )
+
+except Exception:
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
+    GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID", "")
+    HF_TOKEN = os.getenv("HF_TOKEN", "")
+    
 # ─── App Meta ────────────────────────────────────────────────
 APP_NAME           = "TruthLens AI"
 APP_VERSION        = "2.0.0"
